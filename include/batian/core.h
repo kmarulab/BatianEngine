@@ -1,4 +1,5 @@
 #include "precision.h"
+#include <math.h>
 
 namespace batian {
     /**
@@ -30,7 +31,7 @@ namespace batian {
 
             //finds the magnitude
             real magnitude() const {
-                return real_sqrt(x * x + y * y + z * z);
+                return sqrt(x * x + y * y + z * z);
             }
 
             //magnitude squared
@@ -65,7 +66,7 @@ namespace batian {
             }
 
             Vector3 operator+(const Vector3& v) const{
-                return Vector3(x+v.x,y+v.y+z+v.z);
+                return Vector3(x+v.x,y+v.y,z+v.z);
             }
 
             //vector subtraction. Takes vector v and adds to the given vector
@@ -76,7 +77,7 @@ namespace batian {
             }
 
             Vector3 operator-(const Vector3& v) const{
-                return Vector3(x-v.x,y-v.y-z+v.z);
+                return Vector3(x-v.x,y-v.y,z-v.z);
             }
 
             //adds given vector to a scaled vector
